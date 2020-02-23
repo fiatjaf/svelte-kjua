@@ -1,5 +1,5 @@
 <script>
-  import {onMount} from 'svelte'
+  import {onMount, afterUpdate} from 'svelte'
   import kjua from 'kjua'
 
   export let value = ''
@@ -7,18 +7,31 @@
   export let size = 300
 
   let id = parseInt(Math.random() * 100000)
+  var container
+  var qr
 
   onMount(() => {
-    let el = kjua({
+    container = document.getElementById('c-' + id)
+
+    qr = makeQR()
+    container.appendChild(qr)
+  })
+
+  afterUpdate(() => {
+    container.removeChild(qr)
+    qr = makeQR()
+    container.appendChild(qr)
+  })
+
+  function makeQR() {
+    return kjua({
       rounded: 100,
       text: value.toUpperCase(),
       fill: color,
       back: 'transparent',
       size
     })
-
-    document.getElementById('c-' + id).appendChild(el)
-  })
+  }
 </script>
 
 <div id="c-{id}"></div>
