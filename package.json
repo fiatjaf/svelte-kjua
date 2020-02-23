@@ -1,0 +1,11 @@
+{
+  "name": "svelte-kjua",
+  "version": "1.0.2",
+  "description": "QR code component based on kjua.",
+  "main": "QR.svelte",
+  "author": "fiatjaf",
+  "license": "ISC",
+  "dependencies": {
+    "kjua": "^0.6.0"
+  }
+}
