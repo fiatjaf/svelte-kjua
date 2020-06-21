@@ -34,5 +34,9 @@
   }
 </script>
 
+<style>
+div { text-align: center; }
+</style>
+
 <div id="c-{id}"></div>
 
